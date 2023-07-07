@@ -9,7 +9,7 @@ testcases_dir="testcase"
 
 while IFS= read -r line; do
     line=$(echo -n "$line" | tr -d '\n')
-    if [[ -n "$line" && ! $(echo "$line" | grep -E "$regex") ]]; then
+    if [[ -n "$line" && ! $(echo "$line" | grep -E "^$regex$") ]]; then
         echo "Failed accept testcase: $line"
         exit 1
     fi
@@ -18,7 +18,7 @@ done < "$testcases_dir/$level.accept"
 
 while IFS= read -r line; do
     line=$(echo -n "$line" | tr -d '\n')
-    if [[ -n "$line" && $(echo "$line" | grep -E "$regex") ]]; then
+    if [[ -n "$line" && $(echo "$line" | grep -E "^$regex$") ]]; then
         echo "Failed reject testcase: $line"
         exit 1
     fi
