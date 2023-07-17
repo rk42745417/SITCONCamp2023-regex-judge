@@ -1,9 +1,13 @@
 #!/bin/bash
 
-echo "請輸入您要檢測的關卡"
-read level
+level=${1:-"1"}
+if [[ $level -lt 1 || $level -gt 4 ]]; then
+    echo "關卡請輸入 1-4！"
+    exit -1
+fi
+echo "關卡 $level"
 echo "請輸入您的正則表達式"
-read regex
+read -r regex
 
 testcases_dir="testcase"
 
