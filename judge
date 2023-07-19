@@ -29,3 +29,15 @@ while IFS= read -r line; do
 done < "$testcases_dir/$level.reject"
 
 echo "All testcases passed"
+if [[ $level -eq 2 ]]; then
+    keyword="Rexcellenttt"
+fi
+if [[ $level -eq 3 ]]; then
+    keyword="regexTra"
+fi
+if [[ $level -eq 4 ]]; then
+    keyword="regexGod"
+fi
+if [[ -n $keyword ]]; then
+    echo "Keyword: $keyword"
+fi
